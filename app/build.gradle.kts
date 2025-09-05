@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.avto"
+    namespace = "com.example.avtoapplication"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.avto"
+        applicationId = "com.example.avtoapplication"
         minSdk = 28
         targetSdk = 36
         versionCode = 1

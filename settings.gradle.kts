@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AVTO"
+rootProject.name = "AVTOApplication"
 include(":app")
  
