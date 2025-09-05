@@ -13,8 +13,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
     </LinearLayout>
+
 
     <ImageView
         android:id="@+id/imageView5"
@@ -32,4 +32,13 @@
         android:scaleType="fitXY"
         />
 
+    <ImageButton
+        android:id="@+id/Button_gallery"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:layout_alignParentRight="true"
+        android:scaleType="fitXY"
+        android:background="@drawable/asfalt3"
+        android:src="@drawable/gallery_btn" />
 </RelativeLayout>
