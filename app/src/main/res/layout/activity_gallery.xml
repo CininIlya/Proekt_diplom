@@ -5,6 +5,174 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Gallery">
+    tools:context=".Gallery"
+    android:background="@color/material_dynamic_neutral80">
 
+    <ImageButton
+        android:id="@+id/leftButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/sroll"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/str_lev_zol" />
+
+    <ImageButton
+        android:id="@+id/rightButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="82dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tableLayout"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/str_prav_zol"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="410dp"
+        android:layout_height="100dp"
+        android:padding="30dp"
+        android:src="@drawable/dream"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/sroll"
+        android:layout_width="400dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/rightButton">
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageBmw"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_bmw2" />
+
+            <ImageButton
+                android:id="@+id/imageMerc"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_mers" />
+
+            <ImageButton
+                android:id="@+id/imagePorsh"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_posh" />
+
+            <ImageButton
+                android:id="@+id/imagelamba2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_lamb2" />
+
+            <ImageButton
+                android:id="@+id/imageBmw3"
+                android:layout_width="67dp"
+                android:layout_height="66dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_bmw2" />
+
+            <ImageButton
+                android:id="@+id/imagemerc3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_mers" />
+
+            <ImageButton
+                android:id="@+id/imagelamb4"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_lamb2" />
+            <ImageButton
+                android:id="@+id/imagelamba"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_lamb2" />
+
+            <ImageButton
+                android:id="@+id/imageBmw1"
+                android:layout_width="67dp"
+                android:layout_height="66dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_bmw2" />
+
+            <ImageButton
+                android:id="@+id/imagemerc2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_mers" />
+
+            <ImageButton
+                android:id="@+id/imagelamb3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_lamb2" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        tools:layout_editor_absoluteX="-57dp"
+        tools:layout_editor_absoluteY="0dp">
+
+
+        <TableRow>
+
+            <ImageView
+                android:layout_width="185dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/g_klass" />
+
+            <ImageView
+                android:layout_width="185dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/bmw" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="185dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/urus" />
+
+            <ImageView
+                android:layout_width="185dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/panamera" />
+        </TableRow>
+
+
+    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
