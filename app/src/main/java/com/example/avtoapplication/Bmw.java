@@ -1,9 +1,7 @@
 package com.example.avtoapplication;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 
@@ -13,74 +11,41 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Gallery extends AppCompatActivity {
-
-
-
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_gallery);
+public class Bmw extends AppCompatActivity {
 
     private HorizontalScrollView horizontalScrollView;
 
     private ImageButton buttonScrollLeft;
     private ImageButton buttonScrollRight;
-    private ImageButton bmwbutton; // кнопка перехода на bmw
 
-    private  ImageButton bmwgalleryClick;
-
-    public static final int SCROLL_DELTA = 100; // Pixel.
+    public static final int SCROLL_DELTA = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gallery);
+        setContentView(R.layout.activity_bmw);
+
+
 
         horizontalScrollView = findViewById(R.id.sroll);
 
         buttonScrollLeft =  findViewById(R.id.leftButton);
         buttonScrollRight =  findViewById(R.id.rightButton);
 
-        bmwbutton = findViewById(R.id.bmv_gallery);
-
-        bmwgalleryClick =findViewById(R.id.imageBmw);
-
-
-
-
-       buttonScrollLeft.setOnClickListener(new View.OnClickListener() {
+        buttonScrollLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 doScrollLeft();
             }
         });
 
-       buttonScrollRight.setOnClickListener(new View.OnClickListener() {
+        buttonScrollRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 doScrollRight();
             }
         });
-
-       bmwbutton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent intent = new Intent(Gallery.this,Bmw.class);
-               startActivity(intent);
-           }
-       });
-
-       bmwgalleryClick.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent intent = new Intent(Gallery.this,Bmw.class);
-               startActivity(intent);
-           }
-       });
-
     }
-
     private void doScrollLeft() {
 
         int x = horizontalScrollView.getScrollX();
@@ -103,5 +68,3 @@ public class Gallery extends AppCompatActivity {
         }
     }
 }
-
-
