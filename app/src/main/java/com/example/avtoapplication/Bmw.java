@@ -1,7 +1,10 @@
 package com.example.avtoapplication;
 
+import android.app.Dialog;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
@@ -35,7 +38,20 @@ public class Bmw extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmw);
+        
+        ImageButton button = findViewById(R.id.imageBmw); // Здесь «button» — идентификатор кнопки в XML-макете.  
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Если кнопка мыши находится за пределами области изображения, вызывается метод `setVisibility(View.GONE)`.  
+                // Если кнопка мыши входит в область изображения, вызывается метод `
+                 setVisibility(View.VISIBLE); 
+            }
 
+            private void setVisibility(int visible) {
+
+            }
+        });
 
 
         horizontalScrollView = findViewById(R.id.sroll);
@@ -47,6 +63,17 @@ public class Bmw extends AppCompatActivity {
         buttonBmwClickFoto = findViewById(R.id.imageBmw);
         buttonBmwClickFoto1 = findViewById(R.id.imagebmw2);
 
+
+        ImageButton imageButton = findViewById(R.id.imagebmw2); // Здесь «button» — идентификатор кнопки в XML-макете.
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                 Если кнопка мыши находится за пределами области изображения, вызывается метод
+            view.setVisibility(View.GONE);
+                // Если кнопка мыши входит в область изображения, вызывается метод
+                view.setVisibility(View.VISIBLE);
+            }
+        });
 
 
         buttonScrollLeft.setOnClickListener(new View.OnClickListener() {
@@ -132,5 +159,15 @@ public class Bmw extends AppCompatActivity {
         if(x + SCROLL_DELTA <= maxAmount) {
             this.horizontalScrollView.scrollTo(x + SCROLL_DELTA, y);
         }
+
+
+//        Dialog dialog = new Dialog(this) {
+//            @Override
+//            public boolean onTouchEvent(MotionEvent event) {
+//// Коснитесь в любом месте, чтобы закрыть диалоговое окно
+//                this.dismiss();
+//                return true;
+//            }
+//        };
     }
 }

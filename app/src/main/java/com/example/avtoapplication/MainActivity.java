@@ -15,17 +15,16 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
-    
-    @SuppressLint("WrongViewCast")
-    private ImageButton fab;
 
     @SuppressLint("WrongViewCast")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fab = findViewById(R.id.Button_gallery);
+        ImageButton fab = findViewById(R.id.Button_gallery);
+
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

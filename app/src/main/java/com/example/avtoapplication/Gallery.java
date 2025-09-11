@@ -28,6 +28,11 @@ public class Gallery extends AppCompatActivity {
     private ImageButton buttonScrollRight;
     private ImageButton bmwbutton; // кнопка перехода на bmw
 
+
+    private ImageButton bmwprev; // кнопка перехода назад
+
+
+
     private  ImageButton bmwgalleryClick;
 
     public static final int SCROLL_DELTA = 100; // Pixel.
@@ -45,6 +50,8 @@ public class Gallery extends AppCompatActivity {
         bmwbutton = findViewById(R.id.bmv_gallery);
 
         bmwgalleryClick =findViewById(R.id.imageBmw);
+
+        bmwprev = findViewById(R.id.preview);
 
 
 
@@ -70,7 +77,7 @@ public class Gallery extends AppCompatActivity {
                startActivity(intent);
            }
        });
-
+//  кнопка на галлерею БМВ
        bmwgalleryClick.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -78,7 +85,15 @@ public class Gallery extends AppCompatActivity {
                startActivity(intent);
            }
        });
+    // Кнопка назажд на главную
 
+        bmwprev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Gallery.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void doScrollLeft() {
