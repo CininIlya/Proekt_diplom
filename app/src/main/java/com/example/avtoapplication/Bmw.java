@@ -1,28 +1,32 @@
 package com.example.avtoapplication;
 
-import android.app.Dialog;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
-import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class Bmw extends AppCompatActivity {
 
     private HorizontalScrollView horizontalScrollView;
+    private ScrollView vertScrollView;
 
     private ImageButton buttonScrollLeft;
     private ImageButton buttonScrollRight;
+    private ImageButton buttonScrollArrow;
+    private ImageButton buttonScrollDown;
+
+    private ImageButton  buttonSell;
+
 
     private ImageButton buttonBmwClickFoto;
     private ImageButton buttonBmwClickFoto1;
@@ -38,42 +42,38 @@ public class Bmw extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmw);
-        
-        ImageButton button = findViewById(R.id.imageBmw); // Здесь «button» — идентификатор кнопки в XML-макете.  
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Если кнопка мыши находится за пределами области изображения, вызывается метод `setVisibility(View.GONE)`.  
-                // Если кнопка мыши входит в область изображения, вызывается метод `
-                 setVisibility(View.VISIBLE); 
-            }
-
-            private void setVisibility(int visible) {
-
-            }
-        });
 
 
         horizontalScrollView = findViewById(R.id.sroll);
-
-        buttonScrollLeft =  findViewById(R.id.leftButton);
-        buttonScrollRight =  findViewById(R.id.rightButton);
+        vertScrollView = findViewById(R.id.scroll_vert);
 
 
-        buttonBmwClickFoto = findViewById(R.id.imageBmw);
-        buttonBmwClickFoto1 = findViewById(R.id.imagebmw2);
+        buttonScrollLeft = findViewById(R.id.leftButton);
+        buttonScrollRight = findViewById(R.id.rightButton);
+
+        buttonScrollArrow = findViewById(R.id.arrowbutton);
+        buttonScrollDown = findViewById(R.id.downbutton);
+
+        buttonSell =  findViewById(R.id.sell);
 
 
-        ImageButton imageButton = findViewById(R.id.imagebmw2); // Здесь «button» — идентификатор кнопки в XML-макете.
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                 Если кнопка мыши находится за пределами области изображения, вызывается метод
-            view.setVisibility(View.GONE);
-                // Если кнопка мыши входит в область изображения, вызывается метод
-                view.setVisibility(View.VISIBLE);
-            }
-        });
+
+
+
+        buttonBmwClickFoto = (ImageButton) findViewById(R.id.imageBmw);
+        buttonBmwClickFoto1 = (ImageButton) findViewById(R.id.imagebmw2);
+
+
+//        ImageButton imageButton = findViewById(R.id.imagebmw2); // Здесь «button» — идентификатор кнопки в XML-макете.
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+////                 Если кнопка мыши находится за пределами области изображения, вызывается метод
+//                view.setVisibility(View.GONE);
+//                // Если кнопка мыши входит в область изображения, вызывается метод
+//                view.setVisibility(View.VISIBLE);
+//            }
+//        });
 
 
         buttonScrollLeft.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +90,21 @@ public class Bmw extends AppCompatActivity {
             }
         });
 
+        buttonScrollArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doScrollArrow();
+            }
+        });
+
+        buttonScrollDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doScrollDown();
+            }
+        });
+
+
 //        // увелиение миниатуры фото прокрутки
 //            buttonBmwClickFoto.setOnClickListener(new View.OnClickListener() {
 //                @Override
@@ -99,26 +114,28 @@ public class Bmw extends AppCompatActivity {
 //                    isImageScaled = !isImageScaled;
 
         buttonBmwClickFoto.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
 
-            if (isImageFitToScreen) {
-                isImageFitToScreen = false;
+                if (isImageFitToScreen) {
+                    isImageFitToScreen = false;
 
-                buttonBmwClickFoto.setLayoutParams(new LinearLayout.LayoutParams(200, 200));
-                buttonBmwClickFoto.setAdjustViewBounds(true);
-            } else {
-                isImageFitToScreen = true;
-                buttonBmwClickFoto.setLayoutParams(new LinearLayout.LayoutParams(600, 600));
+                    buttonBmwClickFoto.setLayoutParams(new LinearLayout.LayoutParams(200, 200));
+                    buttonBmwClickFoto.setAdjustViewBounds(true);
+                } else {
+                    isImageFitToScreen = true;
+                    buttonBmwClickFoto.setLayoutParams(new LinearLayout.LayoutParams(600, 600));
 
-                buttonBmwClickFoto.setScaleType(ImageView.ScaleType.FIT_START);
-//                buttonBmwClickFoto.setImageResource(R.drawable.bmw_m5_vnut6);
+                    buttonBmwClickFoto.setScaleType(ImageView.ScaleType.FIT_START);
+
+
+                    horizontalScrollView.scrollTo(250, 250); // смешение картинки вправо
+                }
+
+
             }
 
-
-        }
-
-            });
+        });
 
         buttonBmwClickFoto1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,17 +151,40 @@ public class Bmw extends AppCompatActivity {
                     buttonBmwClickFoto1.setLayoutParams(new LinearLayout.LayoutParams(600, 600));
 
                     buttonBmwClickFoto1.setScaleType(ImageView.ScaleType.FIT_START);
-//
+
+                    horizontalScrollView.smoothScrollTo(20, 200); // смешение картинки вправо
+
+                }
+
+
+            }
+        });
+
+        final boolean[] flag = {true};
+        buttonSell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (flag[0]) {
+                    buttonSell.setImageResource(R.drawable.btnbuy2);
+                }else {
+                    buttonSell.setImageResource(R.drawable.btnbuy2);
+                    flag[0] = !flag[0];
                 }
             }
         });
+
+
+
     }
+
     private void doScrollLeft() {
 
         int x = horizontalScrollView.getScrollX();
         int y = horizontalScrollView.getScrollY();
 
-        if(x - SCROLL_DELTA >= 0) {
+
+        if (x - SCROLL_DELTA >= 0) {
             horizontalScrollView.scrollTo(x - SCROLL_DELTA, y);
         }
 
@@ -156,18 +196,34 @@ public class Bmw extends AppCompatActivity {
         int x = this.horizontalScrollView.getScrollX();
         int y = this.horizontalScrollView.getScrollY();
 
-        if(x + SCROLL_DELTA <= maxAmount) {
+        if (x + SCROLL_DELTA <= maxAmount) {
             this.horizontalScrollView.scrollTo(x + SCROLL_DELTA, y);
         }
 
-
-//        Dialog dialog = new Dialog(this) {
-//            @Override
-//            public boolean onTouchEvent(MotionEvent event) {
-//// Коснитесь в любом месте, чтобы закрыть диалоговое окно
-//                this.dismiss();
-//                return true;
-//            }
-//        };
     }
+
+    private void doScrollArrow() {
+
+        int x = vertScrollView.getScrollX();
+        int y = vertScrollView.getScrollY();
+
+        if (x - SCROLL_DELTA >= 0) {
+            vertScrollView.scrollTo(x - SCROLL_DELTA, y);
+        }
+
+    }
+
+    private void doScrollDown() {
+        int maxAmount = vertScrollView.getMaxScrollAmount();
+
+        int x = this.vertScrollView.getScrollX();
+        int y = this.vertScrollView.getScrollY();
+
+        if (x + SCROLL_DELTA <= maxAmount) {
+            this.vertScrollView.scrollTo(x + SCROLL_DELTA, y);
+        }
+
+    }
+
 }
+
