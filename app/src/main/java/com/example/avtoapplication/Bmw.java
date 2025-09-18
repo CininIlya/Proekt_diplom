@@ -3,6 +3,7 @@ package com.example.avtoapplication;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,13 +14,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Bmw extends AppCompatActivity {
-
-
 
 
     private DBHelper dbhelper;
@@ -33,7 +36,7 @@ public class Bmw extends AppCompatActivity {
     private ImageButton buttonScrollArrow;
     private ImageButton buttonScrollDown;
 
-    private ImageButton  buttonSell;
+    private ImageButton buttonSell;
 
     private ImageView imageReserved;
 
@@ -55,8 +58,6 @@ public class Bmw extends AppCompatActivity {
 
 
         dbhelper = new DBHelper(this);// инициализациия баззы данных dbhelper
-
-
 
 
         horizontalScrollView = findViewById(R.id.sroll);
@@ -88,7 +89,60 @@ public class Bmw extends AppCompatActivity {
 //                view.setVisibility(View.VISIBLE);
 //            }
 //        });
+//        final boolean[] flag = {true};
+//        buttonSell.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                flag[0] = !flag[0];
+//                if (flag[0]) {
+//                    buttonSell.setImageResource(R.drawable.btnbuy);
+//
+//                } else {
+//                    imageReserved.setImageResource(R.drawable.btnbuy2);
+////                    buttonSell.setVisibility(View.INVISIBLE);
 
+//
+//                }
+//
+//            }
+//        });
+//
+
+        // метод нажатия на кнопку с одним нажатием отрывается картика с двойным переход на заказы
+        final CountDownTimer[] countDownTimer = {null};
+
+        final int[] click_duble = {1};
+
+        buttonSell.setOnClickListener(view -> {
+
+            if (countDownTimer[0] == null) {
+                float Second = (float) 0.25; //Detecting the type of event within a quarter of a second
+                countDownTimer[0] = new CountDownTimer((long) (Second * 1000), 50) {
+                    @Override
+                    public void onTick(long l) {
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        if (click_duble[0] >= 2) {
+                            Toast.makeText(Bmw.this, "Double", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Bmw.this, Activity_zakaz.class);
+                            startActivity(intent);
+                            buttonSell.setVisibility(View.INVISIBLE);
+                        } else {
+                            Toast.makeText(Bmw.this, "Single", Toast.LENGTH_SHORT).show();
+                            imageReserved.setImageResource(R.drawable.btnbuy2);
+                        }
+                        click_duble[0] = 1;
+                        countDownTimer[0] = null;
+                    }
+                };
+                countDownTimer[0].start();
+            } else {
+                click_duble[0] += 1;
+
+            }
+        });
 
         buttonScrollLeft.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,36 +228,36 @@ public class Bmw extends AppCompatActivity {
             }
         });
 
-        final boolean[] flag = {true};
-        buttonSell.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                flag[0] = !flag[0];
-                if (flag[0]) {
-                    buttonSell.setImageResource(R.drawable.btnbuy2);
 
-                } else {
-                    imageReserved.setImageResource(R.drawable.btnbuy2);
-                    buttonSell.setVisibility(View.INVISIBLE);
-
-
-
-                }
+//        buttonSell.setOnClickListener(new DoubleClickListener() {
+//            @Override
+//            public void onDoubleClick(View v) {
+//                Toast.makeText(getApplicationContext(), "Double Click", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(Bmw.this, Activity_zakaz.class);
+//                startActivity(intent);
+//            }
+//        });
+//    }
 //
-            }
-        });
-        imageReserved.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Bmw.this, Activity_zakaz.class);
-                startActivity(intent);
-            }
-        });
+//    public abstract class DoubleClickListener implements View.OnClickListener {
+//        private long lastClickTime = 0;
+//
+//        @Override
+//        public void onClick(View v) {
+//            long clickTime = System.currentTimeMillis();
+//            if (clickTime - lastClickTime < DOUBLE_CLICK_TIME_DELTA) {
+//                onDoubleClick(v);
+//            }
+//            lastClickTime = clickTime;
+//        }
 
+
+
+//        public abstract void onDoubleClick(View v);
+//
+//        private static final long DOUBLE_CLICK_TIME_DELTA = 300; // milliseconds
 
     }
-
-
     private void doScrollLeft() {
 
         int x = horizontalScrollView.getScrollX();

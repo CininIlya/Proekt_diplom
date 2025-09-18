@@ -5,9 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Bmw"
-    android:background="@color/material_dynamic_neutral80">
-    >
+    android:background="@color/material_dynamic_neutral80"
+    android:clickable="true"
+    tools:context=".Bmw">
+
     <ImageButton
         android:id="@+id/leftButton"
         android:layout_width="50dp"
@@ -15,10 +16,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/sroll"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        android:scaleType="fitXY"
         app:srcCompat="@drawable/str_lev_zol" />
 
     <ImageButton
@@ -27,12 +28,11 @@
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="82dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tableLayout"
+        android:layout_marginEnd="22dp"
         android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/str_prav_zol"/>
+        app:srcCompat="@drawable/str_prav_zol" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -46,15 +46,21 @@
     <HorizontalScrollView
         android:id="@+id/sroll"
         android:layout_width="400dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="6dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:fadingEdgeLength="0dp"
+        android:requiresFadingEdge="horizontal"
+        android:scrollbars="none"
         app:layout_constraintTop_toBottomOf="@+id/rightButton">
 
         <LinearLayout
-            android:layout_width="100dp"
+            android:id="@+id/liner"
+            android:layout_width="400dp"
             android:layout_height="200dp"
-            android:scaleType="fitXY"
-            android:orientation="horizontal">
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:scaleType="fitXY">
 
             <ImageButton
                 android:id="@+id/imagebmw2"
@@ -104,6 +110,7 @@
                 android:layout_height="70dp"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/ic_lamb2" />
+
             <ImageButton
                 android:id="@+id/imagelamba"
                 android:layout_width="70dp"
@@ -132,49 +139,114 @@
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/ic_lamb2" />
         </LinearLayout>
+
     </HorizontalScrollView>
 
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:paddingTop="200dp"
-       >
+    <ImageButton
+        android:id="@+id/arrowbutton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll_vert" />
 
+    <ImageButton
+        android:id="@+id/downbutton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll_vert" />
 
-        <TableRow>
+    <ImageButton
+        android:id="@+id/sell"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:contextClickable="true"
+        app:srcCompat="@drawable/btnbuy"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:scaleType="fitXY"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sroll" />
 
-            <ImageView
-                android:layout_width="185dp"
-                android:layout_height="150dp"
+    <ImageView
+        android:id="@+id/img_reserved"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toTopOf="@+id/scroll_vert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ScrollView
+        android:id="@+id/scroll_vert"
+        android:layout_width="410dp"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sroll">
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="200dp"
+            android:orientation="vertical"
+            android:scaleType="fitXY">
+
+            <ImageButton
+                android:layout_width="400dp"
+                android:layout_height="300dp"
                 android:layout_margin="10dp"
-                android:src="@drawable/bmw_m5_vnut6" />
+                android:scaleType="fitXY"
+                android:src="@drawable/bmw_m5_vnut" />
 
-            <ImageView
-                android:layout_width="185dp"
-                android:layout_height="150dp"
+            <ImageButton
+                android:layout_width="400dp"
+                android:layout_height="300dp"
                 android:layout_margin="10dp"
-                android:src="@drawable/bmw_m5_vnut5" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:layout_width="185dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/bmw_m5_vnut2" />
 
-            <ImageView
-                android:layout_width="185dp"
-                android:layout_height="150dp"
+
+            <ImageButton
+                android:layout_width="400dp"
+                android:layout_height="300dp"
                 android:layout_margin="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/bmw_m5_vnut3" />
+
+            <ImageButton
+                android:layout_width="400dp"
+                android:layout_height="300dp"
+                android:layout_margin="10dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/bmw_m5_vnut4" />
-        </TableRow>
+
+            <ImageButton
+                android:layout_width="400dp"
+                android:layout_height="300dp"
+                android:layout_margin="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/bmw_m5_vnut5" />
+
+            <ImageButton
+                android:layout_width="400dp"
+                android:layout_height="300dp"
+                android:layout_margin="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/bmw_m5_vnut6" />
 
 
-    </TableLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

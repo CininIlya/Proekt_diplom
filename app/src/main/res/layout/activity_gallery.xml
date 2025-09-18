@@ -9,6 +9,17 @@
     android:background="@color/material_dynamic_neutral80">
 
     <ImageButton
+        android:id="@+id/preview"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/gray"
+        app:srcCompat="@drawable/arrowprevdwa" />
+    <ImageButton
         android:id="@+id/leftButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -36,11 +47,14 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="410dp"
+        android:layout_width="200dp"
         android:layout_height="100dp"
+
         android:padding="30dp"
         android:src="@drawable/dream"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <HorizontalScrollView
         android:id="@+id/sroll"
