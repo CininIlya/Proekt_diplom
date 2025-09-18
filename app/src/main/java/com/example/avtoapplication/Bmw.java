@@ -1,5 +1,6 @@
 package com.example.avtoapplication;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -14,9 +15,16 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class Bmw extends AppCompatActivity {
 
+
+
+
+    private DBHelper dbhelper;
+
+    private AdapterContact adapterContact;
     private HorizontalScrollView horizontalScrollView;
     private ScrollView vertScrollView;
 
@@ -26,6 +34,8 @@ public class Bmw extends AppCompatActivity {
     private ImageButton buttonScrollDown;
 
     private ImageButton  buttonSell;
+
+    private ImageView imageReserved;
 
 
     private ImageButton buttonBmwClickFoto;
@@ -44,6 +54,11 @@ public class Bmw extends AppCompatActivity {
         setContentView(R.layout.activity_bmw);
 
 
+        dbhelper = new DBHelper(this);// инициализациия баззы данных dbhelper
+
+
+
+
         horizontalScrollView = findViewById(R.id.sroll);
         vertScrollView = findViewById(R.id.scroll_vert);
 
@@ -54,10 +69,9 @@ public class Bmw extends AppCompatActivity {
         buttonScrollArrow = findViewById(R.id.arrowbutton);
         buttonScrollDown = findViewById(R.id.downbutton);
 
-        buttonSell =  findViewById(R.id.sell);
+        buttonSell = findViewById(R.id.sell);
 
-
-
+        imageReserved = (ImageView) findViewById(R.id.img_reserved);
 
 
         buttonBmwClickFoto = (ImageButton) findViewById(R.id.imageBmw);
@@ -164,19 +178,31 @@ public class Bmw extends AppCompatActivity {
         buttonSell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                flag[0] = !flag[0];
                 if (flag[0]) {
                     buttonSell.setImageResource(R.drawable.btnbuy2);
-                }else {
-                    buttonSell.setImageResource(R.drawable.btnbuy2);
-                    flag[0] = !flag[0];
+
+                } else {
+                    imageReserved.setImageResource(R.drawable.btnbuy2);
+                    buttonSell.setVisibility(View.INVISIBLE);
+
+
+
                 }
+//
+            }
+        });
+        imageReserved.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Bmw.this, Activity_zakaz.class);
+                startActivity(intent);
             }
         });
 
 
-
     }
+
 
     private void doScrollLeft() {
 
