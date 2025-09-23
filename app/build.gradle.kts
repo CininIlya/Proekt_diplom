@@ -32,6 +32,9 @@ android {
 }
 
 dependencies {
+    implementation(libs.swipe.layout.android)
+    implementation(libs.glide)
+    implementation(libs.imagepicker)
 
     implementation(libs.appcompat)
     implementation(libs.material)

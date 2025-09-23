@@ -126,7 +126,7 @@ public class Bmw extends AppCompatActivity {
                     public void onFinish() {
                         if (click_duble[0] >= 2) {
                             Toast.makeText(Bmw.this, "Double", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(Bmw.this, Activity_zakaz.class);
+                            Intent intent = new Intent(Bmw.this, AddEditContact.class);
                             startActivity(intent);
                             buttonSell.setVisibility(View.INVISIBLE);
                         } else {

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorSecondary"
+    android:background="@drawable/fon_zakaz"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -15,15 +15,16 @@
         app:title="Contact App"
         android:background="@color/colorPrimary"
         app:titleTextColor="@color/white"
-        android:paddingTop="20dp"
+        android:paddingTop="30dp"
         android:paddingBottom="20dp"
         android:elevation="4dp"
+        app:menu="@menu/main_top_menu"
         />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contactRv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="110dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/row_contact_item"
 

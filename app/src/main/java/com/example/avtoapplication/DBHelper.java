@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 
 import java.util.ArrayList;
 import java.util.Currency;
@@ -88,5 +90,42 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         db.close();
         return arrayList;
+    }
+
+    // метод добавление контактов
+
+    public void updateContact(String id, String image, String name, String phone, String email, String note, String addedtime, String updatedTime) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(Contacts.C_IMAGE, image);
+        contentValues.put(Contacts.C_NAME, name);
+        contentValues.put(Contacts.C_PHONE, phone);
+        contentValues.put(Contacts.C_EMAIL, email);
+        contentValues.put(Contacts.C_NOTE, note);
+        contentValues.put(Contacts.C_ADDED_TIME, addedtime);
+        contentValues.put(Contacts.C_UPDATED_TIME, updatedTime);
+
+        db.update(Contacts.TABLE_NAME, contentValues, Contacts.C_ID + " = ?", new String[]{id}); // обновление  при условии что свой id по подет в свое поле
+        db.close();
+    }
+
+    // метод удаление контакта из базы
+    public void deleteContact(String id) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        db.delete(Contacts.TABLE_NAME, Contacts.C_ID + " = ?", new String[]{id});
+        db.close();
+    }
+    // метод для удаления всеъх контактов
+    public void deleteAllContacts(){
+        SQLiteDatabase db = getWritableDatabase();
+
+        db.execSQL("DELETE FROM " + Contacts.TABLE_NAME);
+        db.close();
+
+
+
     }
 }

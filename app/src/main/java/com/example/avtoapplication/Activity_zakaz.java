@@ -2,10 +2,15 @@ package com.example.avtoapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
+
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -27,6 +32,10 @@ public class Activity_zakaz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zakaz);
+
+        Toolbar mToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar); // помещает Toolbar поверх всего
+
 
         dbhelper = new DBHelper(this);// инициализациия баззы данных dbhelper
 
@@ -63,5 +72,23 @@ public class Activity_zakaz extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        loadData();
+    }
+
+    // Обработчик создании опции МЕНЮ
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_top_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    // добавление опции для элемента Меню
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.deleteAllContact){
+            dbhelper.deleteAllContacts();
+            onResume();
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
