@@ -29,14 +29,13 @@ public class MainActivity extends AppCompatActivity {
         ImageButton startbaza = findViewById(R.id.loginBtnStart);
 
 
-
 // переход на Галлерею
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this,Gallery.class);
-                intent.putExtra("isEditMode",false);
+                Intent intent = new Intent(MainActivity.this, Gallery.class);
+                intent.putExtra("isEditMode", false);
                 startActivity(intent);
             }
         });
