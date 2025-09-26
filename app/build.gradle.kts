@@ -32,10 +32,14 @@ android {
 }
 
 dependencies {
+
+
+
     implementation(libs.swipe.layout.android)
     implementation(libs.glide)
-    implementation(libs.imagepicker)
+    implementation("com.github.dhaval2404:imagepicker:2.1")
 
+    implementation(libs.android.gif.drawable)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

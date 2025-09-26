@@ -60,7 +60,7 @@ public class AddEditContact extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Intent intent = new Intent(AddEditContact.this, Activity_zakaz.class);
-                Intent intent = new Intent(AddEditContact.this, Gallery.class);
+                Intent intent = new Intent(AddEditContact.this, MainActivity.class);
                 startActivity(intent);
             }
         });

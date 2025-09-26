@@ -34,6 +34,19 @@
             android:name=".Activity_zakaz"
             android:exported="false"/>
         <activity
+            android:name=".login.LoginActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".login.HomeActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".login.ActivityLoginStart"
+            android:exported="false"/>
+        <activity
+            android:name=".login.SignUpActivity"
+            android:exported="false"/>
+
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
