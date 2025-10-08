@@ -41,10 +41,12 @@
         <EditText
             android:id="@+id/nameEdit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/backgrounf_input_field"
+            android:scaleType="fitXY"
+            android:background="@drawable/fon_yacheika_zakazzza5"
             android:drawableStart="@drawable/baseline_text_fields_24"
+
             android:drawablePadding="20dp"
             android:hint="Name"
             android:inputType="textPersonName"

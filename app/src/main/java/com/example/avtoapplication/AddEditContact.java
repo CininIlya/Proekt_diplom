@@ -69,6 +69,7 @@ public class AddEditContact extends AppCompatActivity {
         profile.setClipToOutline(true); // обрезает то что вышло за контур картинки челеовечка на главной
 
         nameEdit = findViewById(R.id.nameEdit);
+
         phoneEdit = findViewById(R.id.phoneEdit);
         emailEdit = findViewById(R.id.emailEdit);
         noteEdit = findViewById(R.id.noteEdit);

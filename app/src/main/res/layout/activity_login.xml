@@ -5,7 +5,7 @@
     android:id="@+id/main2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_screen"
+    android:background="@drawable/urus_login_register"
     tools:context=".login.LoginActivity">
 
     <Button
@@ -17,9 +17,7 @@
         android:textSize="24sp"
         android:backgroundTint="@color/orange"
         android:textColor="@color/black"
-
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
 
@@ -27,7 +25,7 @@
         android:id="@+id/LoginEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="100dp"
         android:ems="12"
         android:inputType="text"
         android:hint="Email"
