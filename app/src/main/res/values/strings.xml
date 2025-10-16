@@ -3,4 +3,23 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
 
+    <string name="all">dropDownMenuExample</string>
+    <string-array name="all_array">
+        <item>Login</item>
+        <item>Register</item>
+        <item>Gallery</item>
+        <item>Zakaz</item>
+        <item>Jupiter</item>
+
+    </string-array>
+
+
+<!--    <string name="app_name1">Capita Oki Parts List</string>-->
+<!--    <string name="action_settings">Settings</string>-->
+<!--    <string name="model_number">Please select your model number:</string>-->
+<!--    <string name="model_spinner">Please select your model number:</string>-->
+<!--&lt;!&ndash;    <string-array name="model_numbers">&ndash;&gt;-->
+<!--&lt;!&ndash;        <item >C711</item>&ndash;&gt;-->
+<!--&lt;!&ndash;        <item >ES7411</item>&ndash;&gt;-->
+<!--&lt;!&ndash;    </string-array>&ndash;&gt;-->
 </resources>

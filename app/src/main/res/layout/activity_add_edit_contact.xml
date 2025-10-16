@@ -43,16 +43,14 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
-            android:scaleType="fitXY"
-            android:background="@drawable/fon_yacheika_zakazzza5"
+            android:background="@drawable/fon_yacheika_zakazzza_final"
             android:drawableStart="@drawable/baseline_text_fields_24"
-
             android:drawablePadding="20dp"
             android:hint="Name"
             android:inputType="textPersonName"
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:textColorHint="@color/white"
 
             />
@@ -60,16 +58,16 @@
         <EditText
             android:id="@+id/phoneEdit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/backgrounf_input_field"
+            android:background="@drawable/fon_yacheika_zakazzza_final"
             android:drawableStart="@drawable/baseline_local_phone_24"
             android:drawablePadding="20dp"
             android:hint="Phone"
             android:inputType="phone"
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:textColorHint="@color/white"
 
             />
@@ -77,16 +75,16 @@
         <EditText
             android:id="@+id/emailEdit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/backgrounf_input_field"
+            android:background="@drawable/fon_yacheika_zakazzza_final"
             android:drawableStart="@drawable/baseline_alternate_email_24"
             android:drawablePadding="20dp"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:textColorHint="@color/white"
 
             />
@@ -94,16 +92,16 @@
         <EditText
             android:id="@+id/noteEdit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/backgrounf_input_field"
+            android:background="@drawable/fon_yacheika_zakazzza_final"
             android:drawableStart="@drawable/baseline_note_24"
             android:drawablePadding="20dp"
             android:hint="Note"
             android:inputType="textLongMessage"
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:textColorHint="@color/white"
 
             />

@@ -132,6 +132,9 @@ public class ActivityLoginStart extends AppCompatActivity {
             }
         });
 
+        Intent intent = getIntent();
+        if (intent != null);
+        String selectedItem = intent.getStringExtra("selectedItem");
 
     }
 }
